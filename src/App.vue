@@ -1,7 +1,6 @@
 <script setup>
   import BreakingBadCards from './components/BreakingBadCards.vue';
   import RickAndMortyCards from './components/RickAndMortyCards.vue';
-
 </script>
 
 <template>

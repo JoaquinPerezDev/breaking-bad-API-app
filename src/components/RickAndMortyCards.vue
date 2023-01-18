@@ -1,13 +1,29 @@
 <script setup>
   import axios from "axios"
-  import { watch } from "vue"
+  import { watch, ref, onMounted } from "vue"
   import Card from "./Card.vue"
 
+  const characters = ref(null)
+  const page = ref(1)
+
+
+  onMounted(async () => {
+    const res = await axios.get("https://rickandmortyapi.com/api/character")
+
+    characters.value = res.data.results
+  })
+
+  watch(page, async () => {
+    const res = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page.value}`)
+
+    characters.value = res.data
+  })
 </script>
 
 <template>
   <div class="container">
     <div class="cards">
+      {{ characters }}
       <!-- <Card  
         v-for="character in characters"
         :key="character.char_id"
@@ -17,10 +33,10 @@
       /> -->
     </div>
     <div class="button-container">
-    <!-- 
+
     <button @click="page--">&lt</button>
     <button @click="page++">&gt</button> 
-    -->
+
     </div>
   </div>
 </template>
