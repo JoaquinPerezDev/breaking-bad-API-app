@@ -24,13 +24,14 @@
   <div class="container">
     <div class="cards">
       {{ characters }}
-      <!-- <Card  
+      <Card  
         v-for="character in characters"
         :key="character.char_id"
         :image="character.img"
         :name="character.name"
-        :occupation="character.occupation"
-      /> -->
+      >
+        {{ character.location.name }}
+      </Card>
     </div>
     <div class="button-container">
 
