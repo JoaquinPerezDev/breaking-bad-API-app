@@ -27,6 +27,10 @@
         :occupation="character.occupation"
       />
     </div>
+    <div class="button-container">
+      <button @click="page--">&lt</button>
+      <button @click="page++">&gt</button>  
+    </div>
   </div>
 </template>
 

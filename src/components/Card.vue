@@ -14,12 +14,14 @@
       <img :src="image">
     </template>
     <h3>{{name}}</h3>
-    <p 
+    <div class="jobs">
+      <p 
       v-for="(job, index) in occupation"
       :key="job"
     >
       {{job}} <span v-if="index < occupation.length - 1">,&nbsp</span>
     </p>
+    </div>
   </n-card>
 </template>
 
