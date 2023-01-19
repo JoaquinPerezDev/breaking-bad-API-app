@@ -13,8 +13,13 @@
       :isBreakingBad="isBreakingBad" 
       @selectShow="isBreakingBad = !isBreakingBad"  
     />
+    <!-- The below code is an alternative to using the Component component 
     <BreakingBadCardsSuspense v-if="isBreakingBad" />
     <RickAndMortyCards v-else/>
+    -->
+    <KeepAlive>
+      <Component :is="isBreakingBad ? BreakingBadCardsSuspense : RickAndMortyCards"  />
+    </KeepAlive>
   </main>
 </template>
 
