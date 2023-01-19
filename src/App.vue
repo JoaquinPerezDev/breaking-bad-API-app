@@ -1,6 +1,7 @@
 <script setup>
   import BreakingBadCards from './components/BreakingBadCards.vue';
   import RickAndMortyCards from './components/RickAndMortyCards.vue';
+  import PracticeSlot from './components/PracticeSlot.vue';
 </script>
 
 <template>
@@ -17,6 +18,9 @@
       </template>
     </Suspense>
     <RickAndMortyCards />
+    <PracticeSlot>
+
+    </PracticeSlot>
   </main>
 </template>
 
