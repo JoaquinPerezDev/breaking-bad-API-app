@@ -1,26 +1,21 @@
 <script setup>
-  import BreakingBadCards from './components/BreakingBadCards.vue';
+  import BreakingBadCardsSuspense from './components/BreakingBadCardsSuspense.vue';
   import RickAndMortyCards from './components/RickAndMortyCards.vue';
-  import PracticeSlot from './components/PracticeSlot.vue';
+  import Hero from './components/Hero.vue';
+  import { ref } from 'vue'
+
+  const isBreakingBad = ref(true)
 </script>
 
 <template>
   <main>
-    <h1>HERO</h1>
-    <Suspense>
-      <template #default>
-        <BreakingBadCards  />
-      </template>
-      <template #fallback>
-        <div>
-          <p>Loading...</p>
-        </div>
-      </template>
-    </Suspense>
-    <RickAndMortyCards />
-    <PracticeSlot>
-
-    </PracticeSlot>
+    <Hero 
+      :isBreakingBad="isBreakingBad" 
+      @selectShow="isBreakingBad = !isBreakingBad"  
+    />
+    <BreakingBadCardsSuspense v-if="isBreakingBad" />
+    <RickAndMortyCards v-else/>
   </main>
 </template>
+
 

@@ -22,8 +22,7 @@
 
 <template>
   <div class="container">
-    <div class="cards">
-      {{ characters }}
+    <div v-if="characters" class="cards">
       <Card  
         v-for="character in characters"
         :key="character.char_id"
@@ -32,6 +31,9 @@
       >
         {{ character.location.name }}
       </Card>
+    </div>
+    <div v-else class="cards spinner">
+      <n-spin size="large"  /> 
     </div>
     <div class="button-container">
 
